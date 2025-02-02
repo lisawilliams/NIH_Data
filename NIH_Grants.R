@@ -149,6 +149,33 @@ datatable(MYSTATE_ABBREVIATION_NIH_data_2023)
 # you can always edit the .gitignore file if you want to change how 
 # things are handled. 
 
+#do you want to see how your state compares to other states? Try this: 
+
+
+NIH_BY_STATE <- NIH_data_split_year %>%
+  filter(AWARD_NOTICE_DATE_YEAR == 2023) %>%
+  filter(ORG_COUNTRY == "UNITED STATES") %>%
+  filter(TOTAL_COST > 1000000) %>%
+  group_by(ORG_STATE) %>%
+  summarize(TOTAL_COST = sum(TOTAL_COST, na.rm=TRUE)) %>%
+  arrange(desc(TOTAL_COST))
+
+write.csv(NIH_BY_STATE,"/Users/lisawilliams/code/R_For_Mass_Communications/NIH_Data/NIH_BY_STATE_2023.csv", row.names = FALSE)
+
+
+plot_NIH_by_state <- ggplot(NIH_BY_STATE,
+                            aes(x=reorder(NIH_BY_STATE$ORG_STATE, 
+                                          NIH_BY_STATE$TOTAL_COST), 
+                                y=NIH_BY_STATE$TOTAL_COST)) +
+  geom_bar(stat="identity", fill="dodgerblue") +
+  scale_y_continuous(labels = scales::dollar_format(scale = .000001, suffix = "M"))+
+  #geom_text(aes(label = signif(TOTAL_COST)), nudge_y = 3) +
+  coord_flip() +
+  labs(x="", y="")+
+  ggtitle("NIH Funding By US State/Territory, 2023",
+          subtitle = "Data from NIH RePORTER")
+
+plot_NIH_by_state + theme_light()
 
 
 

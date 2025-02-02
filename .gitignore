@@ -45,8 +45,7 @@ Thumbs.db
 .Rproj.user
 .Rhistory
 
-#Image files#
-*.png
+
 
 # Files to ignore because they are huge files
 
