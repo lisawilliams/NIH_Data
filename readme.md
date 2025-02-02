@@ -10,7 +10,16 @@ The original data can be found on the NIH website at the following URL: https://
 
 The data dictionary, defining each column in the CSV, is available here: https://report.nih.gov/exporter-data-dictionary
 
-For your convenience and so you can see it locally, I've replicated the data dictionary in this repo in the text file named NIH_RePORTER_Project_Data_Dictionary. 
+For your convenience and so you can see it locally, I've replicated the data dictionary in this repo in the text file named NIH_RePORTER_Project_Data_Dictionary.
+
+## Setting up
+
+If you want to try out the R code, you'll need to download the individual .CSV files of RePORTER data either at the link above or from the NIH website. Each .CSV file represents one year of data. I recommend making a folder structure like this:
+
+Top level folder: NIH_Data
+Folder within that top level folder: data 
+
+In that data folder, place your downloaded .CSV files. The code in the script will combine these into a single dataframe which you will work with by filtering the data and visualizing it by generating charts. 
 
 ## R sample code for parsing this data and making simple plots
 
