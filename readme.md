@@ -16,7 +16,6 @@ For your convenience and so you can see it locally, I've replicated the data dic
 
 The sample code contained here will help you do some basic data cleanup, like combining the .CSV file of each year of the RePORTER data into a single dataframe, and separating date columns into year, month, date columns to make them easier to work with. 
 
-Please note that I am an #RStats beginner. I do not do programming for a living. You are welcome, of course, to modify this code or write your own to interact with the NIH data. Please be kind with your feedback with the recognition that I have limited time to devote to projects like this one. 
 
 
 
